@@ -1271,6 +1271,10 @@ html {
         overflow: hidden;
         transition: all 0.5s ease;
 
+        &::-webkit-details-marker {
+            display: none;
+        }
+
         &[open] {
             .open_status {
                 &::before {
@@ -1301,6 +1305,7 @@ html {
         align-items: center;
         justify-content: space-between;
         @include adaptive-value("gap", 16, 10, 1);
+        list-style: none;
     }
 
     .dot {
