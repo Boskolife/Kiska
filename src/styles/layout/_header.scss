@@ -1,0 +1,413 @@
+.transparent_header {
+    #header {
+        .header_logo {
+            svg {
+                fill: $white;
+                transition: all .3s ease 0s;
+            }
+
+            .svg_heart,
+            .ear {
+                fill: $white;
+                transition: all .3s ease 0s;
+            }
+        }
+
+        .menu_link {
+            color: $pinkF9;
+        }
+
+        .header_btn {
+            background-color: $BG-Light-Pink;
+            color: $black12;
+
+            @include media ("<phone_max") {
+                background-color: transparent;
+                border: 1px solid $white;
+                color: $white;
+            }
+        }
+
+        .menu_link_active {
+            &::before {
+                background-color: $BG-Light-Pink;
+            }
+        }
+
+        .burger_menu {
+
+            &::after,
+            &::before,
+            span {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @include adaptive-value("padding-top", 25, 8, 1);
+    @include adaptive-value("padding-bottom", 25, 8, 1);
+    z-index: 3;
+
+    .header_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .header_logo {
+        width: 115px;
+        position: relative;
+        z-index: 3;
+
+        svg {
+            fill: $black12;
+            transition: all .3s ease 0s;
+        }
+
+        .svg_heart,
+        .ear {
+            fill: $red;
+        }
+
+        @include media ("<phone") {
+            width: 92px;
+        }
+    }
+
+    @media(hover:hover) {
+        .header_logo {
+            &:hover {
+                svg {
+                    fill: $pinkE2;
+                    transition: all .3s ease 0s;
+                }
+
+                .svg_heart,
+                .ear {
+                    fill: $pinkE2;
+                    transition: all .3s ease 0s;
+                }
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .header_logo {
+            &:active {
+                svg {
+                    fill: $pinkE2;
+                    transition: all .3s ease 0s;
+                }
+
+                .svg_heart,
+                .ear {
+                    fill: $pinkE2;
+                }
+            }
+        }
+    }
+
+    .logo_active {
+        svg {
+            fill: $black12 !important;
+            transition: all .3s ease 0s;
+        }
+
+        .svg_heart,
+        .ear {
+            fill: $red !important;
+            transition: all .3s ease 0s;
+        }
+    }
+
+    .header_nav {
+        @include media ("<phone_max") {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            transition: all .3s ease 0s;
+            width: 100%;
+            height: 100dvh;
+            background-color: $pinkF9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .menu_active {
+        right: 0;
+
+
+        .nav_wrap {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: $white;
+            border-radius: 12px;
+            width: 285px;
+            height: 390px;
+            padding: 65px 16px 0 16px;
+        }
+
+        .nav_menu {
+            width: 100%;
+            flex-direction: column;
+        }
+    }
+
+    .nav_menu {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        @include media ("<phone_max") {
+            gap: 25px;
+        }
+    }
+
+    .menu-item {
+        @include media ("<phone_max") {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .menu_link {
+        color: $gray55;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 125%;
+        letter-spacing: -0.2px;
+        text-transform: uppercase;
+        transition: all .3s ease 0s;
+        position: relative;
+
+        @include media ("<phone_max") {
+            font-size: 28px;
+            color: $dark_pink;
+            font-weight: 600;
+            letter-spacing: -0.84px;
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+    @media(hover:hover) {
+        .menu_link {
+            &:hover {
+                color: $pinkE2;
+                transition: all .3s ease 0s;
+            }
+
+            &::before {
+                background-color: $pinkE2;
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .menu_link {
+            &:active {
+                color: $pinkE2;
+                transition: all .3s ease 0s;
+            }
+        }
+    }
+
+    .menu_link_active {
+        color: $black12;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: $black12;
+            bottom: -1px;
+            left: 0;
+            transition: all .3s ease 0s;
+        }
+
+        &:hover {
+            &::before {
+                background-color: $pinkE2;
+                transition: all .3s ease 0s;
+            }
+        }
+
+        @include media ("<phone_max") {
+            color: $black12;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: $red;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &::after {
+                right: 0;
+            }
+
+            &::before {
+                left: 0;
+            }
+        }
+    }
+
+    .header_hidden-btn {
+        display: none;
+        color: $BG-Light-Pink;
+        background-color: $black12;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%;
+        letter-spacing: -0.18px;
+        width: 170px;
+        border-radius: 8px 8px 0 0;
+        padding: 18px;
+
+        span {
+            color: $pinkF9;
+        }
+
+        @include media ("<phone_max") {
+            display: block;
+        }
+    }
+
+    @media(hover:none) {
+        .header_hidden-btn {
+            &:active {
+                background-color: $pinkE2;
+            }
+        }
+    }
+
+    .btns_wrap {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .header_btn {
+        width: 115px;
+        @include adaptive-value("font-size", 20, 14, 1);
+        padding: 10px;
+        border-radius: 4px;
+        background-color: $black12;
+        color: $white;
+        transition: all .3s ease 0s;
+        border:none;
+        cursor: pointer;
+
+        @include media ("<phone_max") {
+            background-color: transparent;
+            border: 1px solid $black12;
+            color: $black12;
+            width: 90px;
+        }
+
+        @include media ("<phone") {
+            padding: 7px;
+        }
+    }
+
+
+    @media(hover:hover) {
+        .header_btn {
+            &:hover {
+                background-color: $pinkE2;
+                transition: all .3s ease 0s;
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .header_btn {
+            &:active {
+                background-color: $pinkE2;
+                transition: all .3s ease 0s;
+            }
+        }
+    }
+
+    .burger_menu {
+        border: none;
+        background-color: transparent;
+        display: none;
+        width: 28px;
+        height: 21px;
+        position: relative;
+        z-index: 3;
+
+        @include media ("<phone_max") {
+            display: block;
+        }
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: $black12;
+            transition: all 0.4s ease;
+            left: 0;
+        }
+
+        span {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: $black12;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            transition: all 0.4s ease;
+            opacity: 1;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+
+        &::before {
+            top: 0;
+        }
+    }
+
+    .burger_active {
+        &::after {
+            transform: rotate(-45deg);
+            bottom: 9px;
+            background-color: $black12;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+            top: 10px;
+            background-color: $black12;
+        }
+
+        span {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}

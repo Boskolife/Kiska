@@ -1,0 +1,83 @@
+#footer {
+    background-color: $black12;
+    @include adaptive-value("padding-top", 120, 80, 1);
+    @include adaptive-value("padding-bottom", 80, 60, 1);
+
+    .footer_content {
+        text-align: center;
+    }
+
+    .footer_logo {
+        width: 155px;
+        display: inline-block;
+        margin-bottom: 25px;
+
+        svg {
+            fill: $white;
+            transition: all .3s ease 0s;
+        }
+
+        @include media ("<phone") {
+            width: 130px;
+        }
+    }
+
+    @media(hover:hover) {
+        .footer_logo {
+            &:hover {
+                svg {
+                    fill: $pinkE2;
+                    transition: all .3s ease 0s;
+                }
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .footer_logo {
+            &:active {
+                svg {
+                    fill: $pinkE2;
+                    transition: all .3s ease 0s;
+                }
+            }
+        }
+    }
+
+    .footer_text {
+        color: $white;
+        @include adaptive-value("font-size", 20, 18, 1);
+        line-height: 130%;
+        letter-spacing: -0.2px;
+        text-transform: uppercase;
+        max-width: 470px;
+        width: 100%;
+        margin: 0 auto;
+        @include adaptive-value("margin-bottom", 110, 80, 1);
+    }
+
+    .links_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer_link {
+        color: $white;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.2px;
+        text-transform: uppercase;
+
+        &:not(:last-child) {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+        }
+    }
+}

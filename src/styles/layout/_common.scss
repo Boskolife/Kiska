@@ -1,0 +1,888 @@
+body {
+    background-color: $white;
+}
+
+html {
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: $light_pink;
+        border-radius: 8px;
+    }
+}
+
+.container {
+    max-width: 1390px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.body_lock {
+    overflow: hidden;
+}
+
+.modify_font{
+    position: relative;
+    z-index: 1;
+}
+
+.glob_btn {
+    color: #121212;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    @include adaptive-value("font-size", 26, 18, 1);
+    cursor: pointer;
+    background-color: $BG-Light-Pink;
+    display: inline-block;
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 8px 8px 0px 0px;
+    padding: 25px 15px;
+    transition: all .3s ease 0s;
+    border-top: 4px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+
+    span {
+        color: $red;
+    }
+}
+
+@media(hover:hover) {
+    .glob_btn {
+        &:hover {
+            background-color: $pinkF9E5;
+            border-color: $black12;
+            background: #F9E5EA;
+            transition: all .3s ease 0s;
+        }
+    }
+}
+
+@media(hover:none) {
+    .glob_btn {
+        &:active {
+            background-color: $pinkF9E5;
+        }
+    }
+}
+
+.main_section {
+    height: 100dvh;
+    @include adaptive-value("padding-top", 125, 105, 1);
+    position: relative;
+
+    .main_img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 100%;
+        }
+    }
+
+    .container,
+    .content {
+        height: 100%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main_title {
+        max-width: 975px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        color: $white;
+        text-align: center;
+        @include adaptive-value("font-size", 82, 50, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -2.46px;
+        flex: 1 1 auto;
+
+        @include media ("<phone_max") {
+            line-height: 100%;
+        }
+
+        .modify_font {
+            display: block;
+            color: $light_pink;
+            text-align: center;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 171, 100, 1);
+            font-weight: 450;
+            line-height: 100%;
+            letter-spacing: -5.13px;
+            text-transform: capitalize;
+            margin-right: 90px;
+
+            @include media ("<phone_max") {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .main_text {
+        color: $white;
+        @include adaptive-value("font-size", 24, 18, 1);
+        font-weight: 500;
+        line-height: 130%;
+        letter-spacing: -0.24px;
+        max-width: 595px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        @include adaptive-value("margin-bottom", 60, 50, 1);
+
+        b{
+            @include media ("<phone_max") {
+                color: $light_pink;
+            }
+        }
+    }
+}
+
+.career {
+    overflow: hidden;
+
+    .career_head {
+        background-color: $BG-Light-Pink;
+        @include adaptive-value("padding-top", 217, 252, 1);
+        @include adaptive-value("padding-bottom", 120, 65, 1);
+        position: relative;
+        text-align: center;
+    }
+
+    .career_img_1,
+    .career_img_2 {
+        position: absolute;
+
+        img {
+            @include adaptive-value("width", 200, 180, 1);
+            @include adaptive-value("height", 220, 200, 1);
+        }
+    }
+
+    .career_img_1 {
+        @include adaptive-value("top", 65, 40, 1);
+        @include adaptive-value("left", 83, -50, 1);
+    }
+
+    .career_img_2 {
+        bottom: 144px;
+        @include adaptive-value("right", 0, -150, 1);
+
+        @include media ("<tablet") {
+            position: static;
+        }
+    }
+
+    .career_title {
+        max-width: 910px;
+        width: 100%;
+        margin: 0 auto 80px auto;
+        color: $black12;
+        @include adaptive-value("font-size", 82, 50, 1);
+        font-style: normal;
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -2.46px;
+        text-align: center;
+        @include adaptive-value("margin-bottom", 170, 90, 1);
+        position: relative;
+
+        .modify_font {
+            position: absolute;
+            font-family: 'Nautica';
+            color: $red;
+            @include adaptive-value("font-size", 150, 86, 1);
+            font-weight: 450;
+            line-height: 100%;
+        }
+
+        .mod_1{
+            top: -60px;
+            left: 10px;
+        }
+
+        .mod_2 {
+           bottom: -45%;
+           right: -30px;
+        }
+    }
+
+    .career_text {
+        max-width: 581px;
+        width: 100%;
+        margin: 0 auto;
+        color: $gray55;
+        text-align: center;
+        @include adaptive-value("font-size", 20, 16, 1);
+        line-height: 130%;
+        letter-spacing: -0.2px;
+
+        @include media ("<tablet") {
+            margin-bottom: 45px;
+        }
+    }
+
+    .career_cards {
+        padding: 40px 0;
+    }
+
+    .cards_wrap {
+        display: grid;
+        grid-template: 1fr 1fr / repeat(auto-fit, minmax(380px, 1fr));
+        gap: 20px;
+
+        @include media ("<phone") {
+            grid-template: 1fr 1fr / repeat(auto-fit, minmax(280px, 1fr));
+        }
+    }
+
+    .card {
+        background-color: $BG-Light-Pink;
+        border-radius: 8px;
+        padding: 45px 32px;
+        @include adaptive-value("height", 485, 345, 1);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+
+        &:nth-child(2) {
+            transform: rotate(2deg);
+
+            @include media ("<tablet") {
+                transform: rotate(0deg);
+            }
+        }
+
+        &:nth-child(6) {
+            transform: rotate(-2deg);
+
+            @include media ("<tablet") {
+                transform: rotate(0deg);
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $red;
+        }
+    }
+
+    .card_title {
+        color: $black12;
+        @include adaptive-value("font-size", 28, 24, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -0.84px;
+    }
+
+    .card_text {
+        flex: 1 1 auto;
+        color: $gray55;
+        @include adaptive-value("font-size", 18, 16, 1);
+        line-height: 130%;
+        letter-spacing: -0.18px;
+    }
+
+    .card_number {
+        color: $red;
+        font-family: 'Nautica';
+        @include adaptive-value("font-size", 60, 42, 1);
+        font-weight: 450;
+        line-height: 100%;
+        letter-spacing: -1.8px;
+        text-transform: capitalize;
+    }
+}
+
+.why {
+    background-image: url(../images/main_page/why_img.webp);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+
+    .container {
+        height: 100%;
+        display: flex;
+        place-items: center;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        background-color: $white;
+        border-radius: 12px;
+        padding: 24px;
+        max-width: 576px;
+        width: calc(100% - 32px);
+        @include adaptive-value("max-height", 560, 375, 1);
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $red;
+        position: absolute;
+    }
+
+    .dot_1 {
+        top: 12px;
+        left: 12px;
+    }
+
+    .dot_2 {
+        top: 12px;
+        right: 12px;
+    }
+
+    .dot_3 {
+        bottom: 12px;
+        left: 12px;
+    }
+
+    .dot_4 {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .why_title {
+        color: $black12;
+        text-align: center;
+        @include adaptive-value("font-size", 64, 42, 1);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -1.92px;
+        text-transform: uppercase;
+        @include adaptive-value("margin-bottom", 48, 28, 1);
+
+        .modify_font {
+            color: $red;
+            text-align: center;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 130, 78, 1);
+            font-weight: 450;
+            line-height: 100%;
+            letter-spacing: -3.9px;
+            text-transform: capitalize;
+        }
+    }
+
+    .why_text {
+        color: $gray55;
+        text-align: center;
+        @include adaptive-value("font-size", 20, 16, 1);
+        line-height: 130%;
+        letter-spacing: -0.2px;
+        max-width: 450px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.service {
+    @include adaptive-value("padding-top", 100, 60, 1);
+    @include adaptive-value("padding-bottom", 100, 60, 1);
+
+    @include media ("<tablet") {
+        padding-bottom: 10px;
+    }
+
+    .service_title {
+        color: $black12;
+        text-align: center;
+        @include adaptive-value("font-size", 64, 42, 1);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -1.92px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        @include adaptive-value("margin-left", 100, -50, 1);
+
+        @include media ("<tablet") {
+            margin-left: 0;
+        }
+
+        .modify_font {
+            color: $red;
+            text-align: center;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 130, 78, 1);
+            font-weight: 450;
+            line-height: 100%;
+            letter-spacing: -3.9px;
+            text-transform: capitalize;
+            display: block;
+            @include adaptive-value("margin-right", 100, -50, 1);
+
+            @include media ("<tablet") {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+
+        @include media ("<tablet") {
+            flex-direction: column;
+        }
+    }
+
+    .service_text {
+        color: $gray55;
+        @include adaptive-value("font-size", 20, 16, 1);
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.2px;
+    }
+
+    .text_1 {
+        max-width: 365px;
+        width: 100%;
+        text-align: right;
+
+        @include media ("<tablet") {
+            order: 1;
+            text-align: left;
+            max-width: 100%;
+        }
+    }
+
+    .text_2 {
+        max-width: 396px;
+        width: 100%;
+        text-align: left;
+
+        @include media ("<tablet") {
+            order: 2;
+            max-width: 100%;
+        }
+    }
+
+    .service_img_wrap {
+        @include media ("<tablet") {
+            order: 3
+        }
+    }
+
+    .img_1 {
+        @include adaptive-value("width", 295, 194, 1);
+        @include adaptive-value("height", 303, 200, 1);
+    }
+
+    .img_2 {
+        @include adaptive-value("width", 281, 185, 1);
+        @include adaptive-value("height", 289, 191, 1);
+        position: relative;
+        top: -53px;
+    }
+}
+
+.testimonials {
+    @include adaptive-value("padding-top", 100, 60, 1);
+    background-color: $pinkF9;
+
+    .content {
+        text-align: center;
+    }
+
+    .testimonials_title {
+        color: $black12;
+        text-align: center;
+        @include adaptive-value("font-size", 64, 42, 1);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -1.92px;
+        text-transform: uppercase;
+        @include adaptive-value("margin-bottom", 80, 40, 1);
+        @include adaptive-value("margin-left", 150, -50, 1);
+
+        @include media ("<tablet") {
+            margin-left: 0;
+        }
+
+        .modify_font {
+            color: $red;
+            text-align: center;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 130, 78, 1);
+            font-weight: 450;
+            line-height: 100%;
+            letter-spacing: -3.9px;
+            text-transform: capitalize;
+            display: block;
+            @include adaptive-value("margin-right", 380, -250, 1);
+
+            @include media ("<tablet") {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .testimonials_cards_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        @include adaptive-value("margin-bottom", 100, 60, 1);
+
+        @include media ("<desktop") {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .card {
+        position: relative;
+        background-color: $white;
+        border-radius: 12px;
+        text-align: center;
+        max-height: 410px;
+        padding-top: 40px;
+        @include adaptive-value("padding-bottom", 60, 40, 1);
+        @include adaptive-value("padding-right", 50, 36, 1);
+        @include adaptive-value("padding-left", 50, 36, 1);
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $red;
+        }
+
+        &::after {
+            right: 16px;
+        }
+
+        &::before {
+            left: 16px;
+        }
+    }
+
+    .user_icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        @include adaptive-value("margin-bottom", 40, 25, 1);
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .user_name {
+        display: block;
+        margin-bottom: 8px;
+        color: $black12;
+        @include adaptive-value("font-size", 24, 20, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -0.24px;
+        text-transform: uppercase;
+    }
+
+    .user_age {
+        display: block;
+        color: $dark_pink;
+        @include adaptive-value("font-size", 18, 16, 1);
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.18px;
+        @include adaptive-value("margin-bottom", 32, 21, 1);
+    }
+
+    .user_review {
+        color: $gray55;
+        @include adaptive-value("font-size", 16, 14, 1);
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.16px;
+        max-width: 340px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .testimonials_btn {
+        background-color: $black12;
+        color: $BG-Light-Pink;
+        transition: all .3s ease 0s;
+        border-top: 4px solid transparent;
+        border-right: 1px solid transparent;
+        border-left: 1px solid transparent;
+
+        span {
+            color: $pinkF9;
+            transition: all .3s ease 0s;
+        }
+    }
+
+    @media(hover:hover) {
+        .testimonials_btn {
+            &:hover {
+                background-color: $pinkF9E5;
+                border-color: $black12;
+                background: #F9E5EA;
+                transition: all .3s ease 0s;
+                color: $black12;
+
+                span {
+                    color: $black12;
+                    transition: all .3s ease 0s;
+                }
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .testimonials_btn {
+            &:active {
+                background-color: $pinkF9E5;
+                color: $black12;
+
+                span {
+                    color: $black12;
+                }
+            }
+        }
+    }
+}
+
+.about_us {
+    background-color: $BG-Light-Pink;
+    @include adaptive-value("padding-top", 170, 100, 1);
+    @include adaptive-value("padding-bottom", 170, 115, 1);
+
+    .title_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        width: max-content;
+        margin: 0 auto;
+
+    }
+
+    .about_us_title {
+        color: $red;
+        font-family: 'Nautica';
+        @include adaptive-value("font-size", 150, 100, 1);
+        font-weight: 450;
+        line-height: 100%;
+        position: absolute;
+        top: 0;
+        left: -175%;
+
+        @include media ("<desktop") {
+            position: relative;
+            left: 0;
+            top: 30px;
+        }
+    }
+
+    .title_img {
+        width: 200px;
+        height: 230px;
+    }
+
+    .sub_title {
+        color: $black12;
+        @include adaptive-value("font-size", 82, 50, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -2.46px;
+        position: absolute;
+        bottom: 15px;
+        right: -39%;
+
+        @include media ("<desktop") {
+            right: -15px;
+            bottom: -35px;
+        }
+    }
+}
+
+.what_do {
+    background-image: url(../images/about_us/what_bg.webp);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top: 130px;
+    padding-bottom: 180px;
+
+    .container {
+        height: 100%;
+        display: flex;
+        place-items: center;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        background-color: $white;
+        border-radius: 12px;
+        padding: 24px;
+        max-width: 902px;
+        width: calc(100% - 32px);
+        @include adaptive-value("max-height", 645, 535, 1);
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $red;
+        position: absolute;
+    }
+
+    .dot_1 {
+        top: 12px;
+        left: 12px;
+    }
+
+    .dot_2 {
+        top: 12px;
+        right: 12px;
+    }
+
+    .dot_3 {
+        bottom: 12px;
+        left: 12px;
+    }
+
+    .dot_4 {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .what_title {
+        color: $black12;
+        text-align: center;
+        @include adaptive-value("font-size", 64, 42, 1);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -1.92px;
+        text-transform: uppercase;
+        @include adaptive-value("margin-bottom", 48, 28, 1);
+
+        .modify_font {
+            color: $red;
+            text-align: center;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 150, 78, 1);
+            font-weight: 450;
+            line-height: 100%;
+            letter-spacing: -3.9px;
+            text-transform: capitalize;
+        }
+    }
+
+    .what_text {
+        color: $gray55;
+        text-align: center;
+        @include adaptive-value("font-size", 20, 16, 1);
+        line-height: 130%;
+        letter-spacing: -0.2px;
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .what_btn {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.companion {
+    position: relative;
+    background-color: $BG-Light-Pink;
+
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 16px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $red;
+    }
+
+    &::after {
+        right: 16px;
+    }
+
+    &::before {
+        left: 16px;
+    }
+
+    .companion_img_1 {
+        width: 454px;
+        height: 570px;
+        @include adaptive-value("width", 454, 142, 1);
+        @include adaptive-value("height", 570, 158, 1);
+    }
+
+    .companion_img_2 {
+        width: 245px;
+        height: 195px;
+    }
+}
