@@ -50,17 +50,17 @@
                             <label>
                                 Email address
                                 <input class="input_filed" type="email"
-                                    placeholder="Enter email address">
+                                    placeholder="Enter email address" required>
                             </label>
                             <label>
                                 Name
                                 <input class="input_filed" type="text"
-                                    placeholder="Enter your name">
+                                    placeholder="Enter your name" required>
                             </label>
                             <label>
                                 Contact number
                                 <input class="input_filed" type="tel"
-                                    placeholder="Enter your name contact number">
+                                    placeholder="Enter your name contact number" required>
                             </label>
                             <label>
                                 Country of residence
@@ -77,8 +77,8 @@
                             <div class="question_wrap">
                                 <span class="form_question">Are you 18 or older?</span>
                                 <div class="input_body">
-                                    <input id="age" type="radio" />
-                                    <label for="age">Online</label>
+                                    <input id="age" type="checkbox" required/>
+                                    <label for="age">Yes</label>
                                 </div>
                             </div>
                             <div class="question_wrap">
@@ -86,7 +86,7 @@
                                     available</span>
                                 <div class="input_wrap">
                                     <div class="input_body">
-                                        <input id="equipment_1" type="radio" name="equipment"/>
+                                        <input id="equipment_1" type="radio" name="equipment" required/>
                                         <label for="equipment_1">Computer & Smartphone</label>
                                     </div>
                                     <div class="input_body">
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="input_body">
                                         <input id="equipment_3" type="radio" name="equipment"/>
-                                        <label for="equipment_3">Computer & HD Webcam</label>
+                                        <label for="equipment_3">Smartphone</label>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                 <span class="form_question">What is your English proficiency level?</span>
                                 <div class="input_wrap">
                                     <div class="input_body">
-                                        <input id="none" type="radio" name="english_level"/>
+                                        <input id="none" type="radio" required name="english_level"/>
                                         <label for="none">None</label>
                                     </div>
                                     <div class="input_body">
@@ -128,7 +128,7 @@
                                 <span class="form_question">Can you dedicate 4+ hours a day to work?</span>
                                 <div class="input_wrap">
                                     <div class="input_body">
-                                        <input id="work" type="radio" name="work"/>
+                                        <input id="work" type="radio" name="work" required/>
                                         <label for="work">Yes</label>
                                     </div>
                                     <div class="input_body">
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="reset" class="form_btn">submit form</button>
+                            <button type="submit" class="form_btn">submit form</button>
                         </form>
                     </div>
                 </div>
