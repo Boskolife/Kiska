@@ -1,10 +1,11 @@
 burgerInit();
 findHref();
+searchFaq();
 
 function burgerInit() {
   const burger = document.querySelector('.burger_menu');
   const menu = document.querySelector('.header_nav');
-  const logo = document.querySelector('.header_logo')
+  const logo = document.querySelector('.header_logo');
 
   burger.addEventListener('click', () => {
     burger.classList.toggle('burger_active');
@@ -28,5 +29,25 @@ function findHref() {
     } else {
       link.classList.remove('menu_link_active'); // Очистка, если меняется URL
     }
+  });
+}
+
+function searchFaq() {
+  const searchInput = document.querySelector('.search_input');
+  const items = document.querySelectorAll('.list_item');
+
+  searchInput.addEventListener('input', (event) => {
+    const query = event.target.value.toLowerCase();
+
+    items.forEach((item) => {
+      const title = item.querySelector('.item_title').textContent.toLowerCase();
+      const text = item.querySelector('.list_text').textContent.toLowerCase();
+
+      if (title.includes(query) || text.includes(query)) {
+        item.classList.remove('hidden_item');
+      } else {
+        item.classList.add('hidden_item');
+      }
+    });
   });
 }

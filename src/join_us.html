@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiska</title>
+    <link rel="shortcut icon" href="./images/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/main.scss">
+    <link href="https://fonts.googleapis.com/css?family=Outfit:regular,500,600,700"
+        rel="stylesheet" />
+    <script type="module" src="./js/main.js" defer></script>
+</head>
+
+<body>
+    {{> header }}
+    <main>
+        <section class="join">
+            <div class="container">
+                <div class="content">
+                    <h1 class="join_title">
+                        <span class="modify_font">
+                            Join
+                        </span>
+                        THE KISKA TEAM
+                    </h1>
+                    <p class="join_text">
+                        <b>If you're experiencing difficulties with contact form submission,</b>feel
+                        free to reach out to us on
+                        <a class="join_link" target="_blank" href="#">WhatsApp</a>,
+                        <a class="join_link" target="_blank" href="#">Telegram</a>,
+                        <a class="join_link" target="_blank" href="#">Instagram</a>
+                        or
+                        <a class="join_link" href="mailto:kiska@support.com">Email</a>
+                        (kiska@support.com).
+                    </p>
+                </div>
+                <div class="contact_form">
+                    <div class="dot dot_1"></div>
+                    <div class="dot dot_2"></div>
+                    <div class="dot dot_3"></div>
+                    <div class="dot dot_4"></div>
+                    <h2 class="form_title">Contact Form</h2>
+                    <p class="form_text">
+                        Our team will reach out to you promptly to collect further details and to
+                        arrange a conversation. Embark on Your Successful Modeling Career with Us!
+                    </p>
+                    <div class="form_wrap">
+                        <form>
+                            <label>
+                                Email address
+                                <input class="input_filed" type="email"
+                                    placeholder="Enter email address">
+                            </label>
+                            <label>
+                                Name
+                                <input class="input_filed" type="text"
+                                    placeholder="Enter your name">
+                            </label>
+                            <label>
+                                Contact number
+                                <input class="input_filed" type="tel"
+                                    placeholder="Enter your name contact number">
+                            </label>
+                            <label>
+                                Country of residence
+                                <div class="custom_select">
+                                    <select class="input_filed" name="countries" id="countries">
+                                        <option value="Enter your country of residence">Enter your
+                                            country of residence</option>
+                                        <option value="usa">usa</option>
+                                        <option value="uk">uk</option>
+                                        <option value="ok">ok</option>
+                                    </select>
+                                </div>
+                            </label>
+                            <div class="question_wrap">
+                                <span class="form_question">Are you 18 or older?</span>
+                                <div class="input_body">
+                                    <input id="age" type="radio" />
+                                    <label for="age">Online</label>
+                                </div>
+                            </div>
+                            <div class="question_wrap">
+                                <span class="form_question">What equipment do you have
+                                    available</span>
+                                <div class="input_wrap">
+                                    <div class="input_body">
+                                        <input id="equipment_1" type="radio" name="equipment"/>
+                                        <label for="equipment_1">Computer & Smartphone</label>
+                                    </div>
+                                    <div class="input_body">
+                                        <input id="equipment_2" type="radio" name="equipment"/>
+                                        <label for="equipment_2">Computer & HD Webcam</label>
+                                    </div>
+                                    <div class="input_body">
+                                        <input id="equipment_3" type="radio" name="equipment"/>
+                                        <label for="equipment_3">Computer & HD Webcam</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question_wrap">
+                                <span class="form_question">What is your English proficiency level?</span>
+                                <div class="input_wrap">
+                                    <div class="input_body">
+                                        <input id="none" type="radio" name="english_level"/>
+                                        <label for="none">None</label>
+                                    </div>
+                                    <div class="input_body">
+                                        <input id="basic" type="radio" name="english_level"/>
+                                        <label for="basic">Basic</label>
+                                    </div>
+                                    <div class="input_body">
+                                        <input id="intermediate" type="radio" name="english_level"/>
+                                        <label for="intermediate">Intermediate</label>
+                                    </div>
+                                    <div class="input_body">
+                                        <input id="advanced" type="radio" name="english_level"/>
+                                        <label for="advanced">Advanced</label>
+                                    </div>
+                                    <div class="input_body">
+                                        <input id="native" type="radio" name="english_level"/>
+                                        <label for="native">Native</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question_wrap">
+                                <span class="form_question">Can you dedicate 4+ hours a day to work?</span>
+                                <div class="input_wrap">
+                                    <div class="input_body">
+                                        <input id="work" type="radio" name="work"/>
+                                        <label for="work">Yes</label>
+                                    </div>
+                                    <div class="input_body">
+                                        <input id="work" type="radio" name="work"/>
+                                        <label for="work">Less than 4 hours</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="reset" class="form_btn">submit form</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    {{> footer }}
+</body>
+
+</html>

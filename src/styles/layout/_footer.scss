@@ -70,6 +70,7 @@
         line-height: 130%;
         letter-spacing: -0.2px;
         text-transform: uppercase;
+        transition: all .3s ease 0s;
 
         &:not(:last-child) {
             text-decoration-line: underline;
@@ -78,6 +79,23 @@
             text-decoration-thickness: auto;
             text-underline-offset: auto;
             text-underline-position: from-font;
+        }
+    }
+
+    @media(hover:hover) {
+        .footer_link {
+            &:hover {
+                color: $pinkE2;
+                transition: all .3s ease 0s;
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .footer_link {
+            &:active {
+                color: $pinkE2;
+            }
         }
     }
 }

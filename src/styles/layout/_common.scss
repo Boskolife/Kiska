@@ -29,7 +29,7 @@ html {
     overflow: hidden;
 }
 
-.modify_font{
+.modify_font {
     position: relative;
     z-index: 1;
 }
@@ -53,6 +53,11 @@ html {
     border-top: 4px solid transparent;
     border-right: 1px solid transparent;
     border-left: 1px solid transparent;
+
+    @include media ("<phone_max") {
+        max-width: 310px;
+        padding: 19px 15px;
+    }
 
     span {
         color: $red;
@@ -156,7 +161,7 @@ html {
         text-align: center;
         @include adaptive-value("margin-bottom", 60, 50, 1);
 
-        b{
+        b {
             @include media ("<phone_max") {
                 color: $light_pink;
             }
@@ -169,7 +174,7 @@ html {
 
     .career_head {
         background-color: $BG-Light-Pink;
-        @include adaptive-value("padding-top", 217, 252, 1);
+        @include adaptive-value("padding-top", 180, 200, 1);
         @include adaptive-value("padding-bottom", 120, 65, 1);
         position: relative;
         text-align: center;
@@ -201,7 +206,7 @@ html {
 
     .career_title {
         max-width: 910px;
-        width: 100%;
+        width: max-content;
         margin: 0 auto 80px auto;
         color: $black12;
         @include adaptive-value("font-size", 82, 50, 1);
@@ -213,8 +218,15 @@ html {
         @include adaptive-value("margin-bottom", 170, 90, 1);
         position: relative;
 
+        @include media ("<phone_max") {
+            width: 100%;
+
+            br {
+                display: none;
+            }
+        }
+
         .modify_font {
-            position: absolute;
             font-family: 'Nautica';
             color: $red;
             @include adaptive-value("font-size", 150, 86, 1);
@@ -222,14 +234,15 @@ html {
             line-height: 100%;
         }
 
-        .mod_1{
-            top: -60px;
-            left: 10px;
-        }
-
         .mod_2 {
-           bottom: -45%;
-           right: -30px;
+            position: absolute;
+            bottom: -35%;
+            right: -50px;
+
+            @include media ("<phone_max") {
+                bottom: -30%;
+                right: 0;
+            }
         }
     }
 
@@ -272,6 +285,10 @@ html {
         gap: 10px;
         position: relative;
 
+        @include media ("<phone") {
+            height: auto;
+        }
+
         &:nth-child(2) {
             transform: rotate(2deg);
 
@@ -306,6 +323,12 @@ html {
         font-weight: 600;
         line-height: 110%;
         letter-spacing: -0.84px;
+
+        @include media ("<phone") {
+            br {
+                display: none;
+            }
+        }
     }
 
     .card_text {
@@ -314,6 +337,10 @@ html {
         @include adaptive-value("font-size", 18, 16, 1);
         line-height: 130%;
         letter-spacing: -0.18px;
+
+        @include media ("<phone") {
+            margin-bottom: 75px;
+        }
     }
 
     .card_number {
@@ -451,7 +478,9 @@ html {
             letter-spacing: -3.9px;
             text-transform: capitalize;
             display: block;
-            @include adaptive-value("margin-right", 100, -50, 1);
+            @include adaptive-value("margin-right", 200, -50, 1);
+            @include adaptive-value("top", 5, 15, 1);
+            z-index: -1;
 
             @include media ("<tablet") {
                 margin-right: 0;
@@ -553,10 +582,16 @@ html {
             letter-spacing: -3.9px;
             text-transform: capitalize;
             display: block;
-            @include adaptive-value("margin-right", 380, -250, 1);
+            @include adaptive-value("margin-right", 430, -250, 1);
+            @include adaptive-value("top", 25, 15, 1);
+            z-index: 0;
 
             @include media ("<tablet") {
                 margin-right: 0;
+            }
+
+            @include media ("<phone") {
+                text-align: start;
             }
         }
     }
@@ -720,7 +755,7 @@ html {
         line-height: 100%;
         position: absolute;
         top: 0;
-        left: -175%;
+        left: -295px;
 
         @include media ("<desktop") {
             position: relative;
@@ -848,12 +883,18 @@ html {
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
+
+        @include media ("<phone_max") {
+            display: none;
+        }
     }
 }
 
 .companion {
-    position: relative;
     background-color: $BG-Light-Pink;
+    @include adaptive-value("padding-top", 150, 165, 1);
+    @include adaptive-value("padding-bottom", 340, 50, 1);
+    overflow: hidden;
 
     &::after,
     &::before {
@@ -874,15 +915,748 @@ html {
         left: 16px;
     }
 
+    .content {
+        position: relative;
+    }
+
     .companion_img_1 {
-        width: 454px;
-        height: 570px;
         @include adaptive-value("width", 454, 142, 1);
         @include adaptive-value("height", 570, 158, 1);
+        position: absolute;
+        top: 13%;
+        right: 60%;
+
+        @include media ("<tablet") {
+            top: -110px;
+            right: -15px;
+            width: 140px;
+            height: 158px;
+            transform: rotate(15deg);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     .companion_img_2 {
-        width: 245px;
-        height: 195px;
+        @include adaptive-value("width", 245, 167, 1);
+        @include adaptive-value("height", 195, 110, 1);
+        margin-left: auto;
+
+        @include media ("<phone") {
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .companion_title {
+        color: $black12;
+        @include adaptive-value("font-size", 64, 42, 1);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -1.92px;
+        text-transform: uppercase;
+        max-width: 867px;
+        margin: 0 auto;
+        text-align: end;
+        @include adaptive-value("margin-bottom", 80, 40, 1);
+        position: relative;
+        z-index: 1;
+
+        @include media ("<phone") {
+            text-align: center;
+        }
+
+        .modify_font {
+            color: $red;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 150, 80, 1);
+            font-weight: 450;
+            line-height: 100%;
+            text-transform: capitalize;
+        }
+    }
+
+    .companion_text {
+        width: 41%;
+        text-align: start;
+        color: $gray55;
+        @include adaptive-value("font-size", 20, 16, 1);
+        line-height: 130%;
+        letter-spacing: -0.2px;
+        margin-left: auto;
+        margin-bottom: 35px;
+
+        @include media ("<desktop") {
+            width: 50%;
+        }
+
+        @include media ("<tablet") {
+            width: 100%;
+        }
+    }
+}
+
+.steps {
+    background-image: url(../images/about_us/steps_img.webp);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include adaptive-value("padding-top", 120, 60, 1);
+
+    .content {
+        text-align: center;
+    }
+
+    .steps_title {
+        color: $white;
+        @include adaptive-value("font-size", 64, 42, 1);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -1.92px;
+        text-transform: uppercase;
+        text-align: center;
+        @include adaptive-value("margin-bottom", 80, 40, 1);
+
+        .modify_font {
+            color: $light_pink;
+            font-family: 'Nautica';
+            font-size: 150px;
+            font-style: normal;
+            font-weight: 450;
+            line-height: 100%;
+            text-transform: lowercase;
+        }
+    }
+
+    .steps_cards_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        @include adaptive-value("margin-bottom", 100, 60, 1);
+
+
+        @include media ("<desktop") {
+            flex-wrap: wrap;
+        }
+    }
+
+    .steps_card {
+        max-width: 440px;
+        width: 100%;
+        @include adaptive-value("height", 480, 296, 1);
+        border-radius: 12px;
+        background-color: $BG-Light-Pink;
+        position: relative;
+        @include adaptive-value("padding-top", 45, 36, 1);
+        @include adaptive-value("padding-bottom", 45, 36, 1);
+        @include adaptive-value("padding-right", 32, 24, 1);
+        @include adaptive-value("padding-left", 32, 24, 1);
+        display: flex;
+        flex-direction: column;
+
+
+        &:nth-child(2) {
+            transform: rotate(2deg);
+
+            @include media ("<tablet") {
+                transform: rotate(0);
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $red;
+        }
+    }
+
+    .card_number {
+        color: $red;
+        font-family: 'Nautica';
+        @include adaptive-value("font-size", 60, 42, 1);
+        font-weight: 450;
+        line-height: 100%;
+        letter-spacing: -1.8px;
+        text-transform: capitalize;
+        flex: 1 1 auto;
+    }
+
+    .card_text {
+        color: $black12;
+        @include adaptive-value("font-size", 28, 24, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -0.84px;
+        text-align: start;
+    }
+
+    .steps_btn {
+        background-color: $black12;
+        color: $pinkF9;
+
+        span {
+            transition: all .3s ease 0s;
+            color: $light_pink;
+        }
+    }
+
+    @media(hover:hover) {
+        .steps_btn {
+            &:hover {
+                background-color: $pinkF9E5;
+                border-color: $black12;
+                color: $black12;
+                transition: all .3s ease 0s;
+
+                span {
+                    color: $black12;
+                    transition: all .3s ease 0s;
+                }
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .steps_btn {
+            &:active {
+                background-color: $pinkF9E5;
+                color: $black12;
+            }
+
+            span {
+                color: $black12;
+            }
+        }
+    }
+}
+
+
+.faq {
+    @include adaptive-value("padding-top", 170, 100, 1);
+    background-color: $BG-Light-Pink;
+
+    .content {
+        text-align: center;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .faq_title {
+        color: $black12;
+        @include adaptive-value("font-size", 82, 50, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -2.46px;
+        text-align: end;
+        max-width: 1007px;
+        width: 100%;
+        margin: 0 auto;
+        @include adaptive-value("margin-bottom", 100, 50, 1);
+
+        @include media ("<phone") {
+            text-align: center;
+        }
+
+        .modify_font {
+            color: $red;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 150, 86, 1);
+            font-weight: 450;
+            line-height: 100%;
+            display: block;
+            text-align: start;
+            top: 25px;
+            margin-left: 25px;
+
+            @include media ("<phone") {
+                top: 15px;
+            }
+        }
+    }
+
+    .search_wrap {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid $pinkE2;
+        padding: 4px 4px 4px 16px;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        @include adaptive-value("margin-bottom", 36, 24, 1);
+        transition: all .3s ease 0s;
+
+        &:focus-within {
+            border-color: $dark_pink;
+            transition: all .3s ease 0s;
+        }
+    }
+
+    .search_input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        color: $black12;
+        font-size: 16px;
+        line-height: 130%;
+
+
+
+        &::placeholder {
+            color: $gray55;
+            font-size: 16px;
+            line-height: 130%;
+        }
+    }
+
+    .serach_btn {
+        border: none;
+        background-color: $dark_pink;
+        border-radius: 4px;
+        width: 48px;
+        height: 48px;
+        @include adaptive-value("width", 48, 32, 1);
+        @include adaptive-value("height", 48, 32, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .faq_list {
+        @include adaptive-value("padding-bottom", 100, 60, 1);
+    }
+
+    .list_item {
+        background-color: $white;
+        border-radius: 8px;
+        @include adaptive-value("padding-top", 16, 12, 1);
+        @include adaptive-value("padding-bottom", 16, 12, 1);
+        @include adaptive-value("padding-right", 16, 8, 1);
+        @include adaptive-value("padding-left", 16, 12, 1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        @include adaptive-value("gap", 16, 10, 1);
+        position: relative;
+        text-align: start;
+
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+
+    }
+
+    .hidden_item {
+        display: none;
+    }
+
+    .item_details {
+        width: 100%;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.5s ease;
+
+        &[open] {
+            .open_status {
+                &::before {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                    transition: all .3s ease 0s;
+                }
+            }
+
+            .list_text {
+                animation: sweep .5s ease-in-out;
+            }
+
+        }
+    }
+
+    @keyframes sweep {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .item_title_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include adaptive-value("gap", 16, 10, 1);
+    }
+
+    .dot {
+        min-width: 8px;
+        min-height: 8px;
+        border-radius: 50%;
+        background-color: $dark_pink
+    }
+
+    .item_title {
+        color: $black12;
+        @include adaptive-value("font-size", 24, 14, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -0.24px;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+    .list_text {
+        color: $gray55;
+        @include adaptive-value("font-size", 18, 14, 1);
+        line-height: 130%;
+        letter-spacing: -0.18px;
+        padding-left: 15px;
+        margin-top: 5px;
+    }
+
+    .open_status {
+        width: 20px;
+        height: 20px;
+        position: relative;
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            height: 3px;
+            background-color: $dark_pink;
+        }
+
+        &::before {
+            transition: all .3s ease 0s;
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+    }
+
+    .faq_btn {
+        background-color: $black12;
+        color: $pinkF9;
+
+        span {
+            transition: all .3s ease 0s;
+            color: $light_pink;
+        }
+    }
+
+    @media(hover:hover) {
+        .faq_btn {
+            &:hover {
+                background-color: $pinkF9E5;
+                border-color: $black12;
+                color: $black12;
+                transition: all .3s ease 0s;
+
+                span {
+                    color: $black12;
+                    transition: all .3s ease 0s;
+                }
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .faq_btn {
+            &:active {
+                background-color: $pinkF9E5;
+                color: $black12;
+            }
+
+            span {
+                color: $black12;
+            }
+        }
+    }
+}
+
+.join {
+    @include adaptive-value("padding-top", 170, 100, 1);
+    @include adaptive-value("padding-bottom", 100, 60, 1);
+    background-color: $BG-Light-Pink;
+
+    .content {
+        text-align: center;
+        max-width: 777px;
+        width: 100%;
+        margin: 0 auto;
+        @include adaptive-value("margin-bottom", 80, 50, 1);
+    }
+
+    .join_title {
+        color: $black12;
+        @include adaptive-value("font-size", 82, 50, 1);
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -2.46px;
+        text-align: end;
+        max-width: 1007px;
+        width: 100%;
+        margin: 0 auto;
+        @include adaptive-value("margin-bottom", 50, 30, 1);
+
+        @include media ("<phone") {
+            text-align: center;
+        }
+
+        .modify_font {
+            color: $red;
+            font-family: 'Nautica';
+            @include adaptive-value("font-size", 150, 86, 1);
+            font-weight: 450;
+            line-height: 100%;
+            display: block;
+            text-align: start;
+            top: 25px;
+            margin-left: 25px;
+
+            @include media ("<phone") {
+                top: 15px;
+            }
+        }
+    }
+
+    .join_text {
+        color: $gray55;
+        @include adaptive-value("font-size", 24, 18, 1);
+        font-weight: 500;
+        line-height: 130%;
+        letter-spacing: -0.24px;
+        max-width: 670px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .join_link {
+        color: $gray55;
+        text-decoration: underline;
+    }
+
+    .contact_form {
+        border-radius: 12px;
+        background-color: $white;
+        position: relative;
+        @include adaptive-value("padding-top", 100, 60, 1);
+        @include adaptive-value("padding-bottom", 100, 60, 1);
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $red;
+        position: absolute;
+    }
+
+    .dot_1 {
+        top: 12px;
+        left: 12px;
+    }
+
+    .dot_2 {
+        top: 12px;
+        right: 12px;
+    }
+
+    .dot_3 {
+        bottom: 12px;
+        left: 12px;
+    }
+
+    .dot_4 {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .form_title {
+        color: $black12;
+        @include adaptive-value("font-size", 64, 42, 1);
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -1.92px;
+        text-transform: uppercase;
+        @include adaptive-value("margin-bottom", 36, 28, 1);
+    }
+
+    .form_text {
+        color: $gray55;
+        @include adaptive-value("font-size", 20, 16, 1);
+        line-height: 130%;
+        letter-spacing: -0.2px;
+        max-width: 670px;
+        width: 100%;
+        margin: 0 auto;
+        @include adaptive-value("margin-bottom", 40, 50, 1);
+    }
+
+    .form_wrap {
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        label {
+            color: $black12;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 130%;
+            letter-spacing: -0.13px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .custom_select {
+            width: 100%;
+            position: relative;
+
+            &::after {
+                content: url(../images/arrow.svg);
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+        }
+
+        .input_filed {
+            margin-top: 4px;
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid $pinkE2;
+            background-color: $white;
+            padding: 12px 32px 12px 16px;
+            transition: all .3s ease 0s;
+
+            &:focus {
+                border-color: $dark_pink;
+                transition: all .3s ease 0s;
+            }
+        }
+
+        select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+
+            &::-ms-expand {
+                display: none;
+            }
+        }
+    }
+
+    .question_wrap {
+        text-align: start;
+    }
+
+    .form_question {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: $black;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 130%;
+        letter-spacing: -0.13px;
+    }
+
+    .input_wrap {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 12px;
+        column-gap: 24px;
+    }
+
+    .input_body {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        input {
+            accent-color: $dark_pink;
+            min-width: 24px;
+            min-height: 24px;
+        }
+
+        label {
+            color: $gray55;
+            font-feature-settings: 'liga'off, 'clig'off;
+            font-size: 14px;
+            line-height: 140%;
+        }
+
+        input,
+        label {
+            cursor: pointer;
+        }
+    }
+
+    .form_btn {
+        @include adaptive-value("margin-top", 20, 10, 1);
+        border-radius: 8px;
+        background: $black12;
+        @include adaptive-value("padding-top", 25, 20, 1);
+        @include adaptive-value("padding-bottom", 25, 20, 1);
+        color: $white;
+        @include adaptive-value("font-size", 26, 18, 1);
+        font-weight: 500;
+        line-height: 115%;
+        letter-spacing: -0.26px;
+        text-transform: uppercase;
+        border: none;
+        transition: all .3s ease 0s;
+    }
+
+    @media(hover:hover) {
+        .form_btn {
+            &:hover {
+                background-color: $pinkE2;
+                transition: all .3s ease 0s;
+            }
+        }
+    }
+
+    @media(hover:none) {
+        .form_btn {
+            &:active {
+                background-color: $pinkE2;
+            }
+        }
     }
 }
