@@ -13,9 +13,12 @@
             }
         }
 
-        .menu_link {
-            color: $pinkF9;
+        @include media (">phone_max") {
+            .menu_link {
+                color: $pinkF9;
+            }
         }
+
 
         .header_btn {
             background-color: $BG-Light-Pink;
@@ -28,11 +31,16 @@
             }
         }
 
-        .menu_link_active {
-            &::before {
-                background-color: $BG-Light-Pink;
+        @include media (">phone_max") {
+            .menu_link_active {
+                &::before {
+                    background-color: $BG-Light-Pink;
+                }
             }
         }
+
+
+
 
         .burger_menu {
 
@@ -40,6 +48,16 @@
             &::before,
             span {
                 background-color: $white;
+            }
+        }
+
+        .burger_active {
+            &::after {
+                background-color: $black12;
+            }
+
+            &::before {
+                background-color: $black12;
             }
         }
     }
@@ -313,7 +331,7 @@
         background-color: $black12;
         color: $white;
         transition: all .3s ease 0s;
-        border:none;
+        border: none;
         cursor: pointer;
 
         @include media ("<phone_max") {
