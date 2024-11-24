@@ -1027,11 +1027,19 @@ html {
         .modify_font {
             color: $light_pink;
             font-family: 'Nautica';
-            font-size: 150px;
+            @include adaptive-value("font-size", 150, 78, 1);
             font-style: normal;
             font-weight: 450;
             line-height: 100%;
             text-transform: lowercase;
+        }
+
+        br{
+            display: none;
+
+            @include media ("<phone_max") {
+                display: block;
+            }
         }
     }
 
@@ -1051,7 +1059,7 @@ html {
     .steps_card {
         max-width: 440px;
         width: 100%;
-        @include adaptive-value("height", 480, 296, 1);
+        @include adaptive-value("height", 480, 270, 1);
         border-radius: 12px;
         background-color: $BG-Light-Pink;
         position: relative;
@@ -1092,6 +1100,7 @@ html {
         letter-spacing: -1.8px;
         text-transform: capitalize;
         flex: 1 1 auto;
+        text-align: start;
     }
 
     .card_text {
@@ -1271,10 +1280,6 @@ html {
         overflow: hidden;
         transition: all 0.5s ease;
 
-        &::-webkit-details-marker {
-            display: none;
-        }
-
         &[open] {
             .open_status {
                 &::before {
@@ -1306,6 +1311,10 @@ html {
         justify-content: space-between;
         @include adaptive-value("gap", 16, 10, 1);
         list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
     }
 
     .dot {

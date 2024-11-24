@@ -27,7 +27,7 @@ function findHref() {
     if (url === link.href) {
       link.classList.add('menu_link_active');
     } else {
-      link.classList.remove('menu_link_active'); // Очистка, если меняется URL
+      link.classList.remove('menu_link_active'); 
     }
   });
 }
@@ -35,6 +35,10 @@ function findHref() {
 function searchFaq() {
   const searchInput = document.querySelector('.search_input');
   const items = document.querySelectorAll('.list_item');
+
+  if(!searchInput){
+    return
+  }
 
   searchInput.addEventListener('input', (event) => {
     const query = event.target.value.toLowerCase();

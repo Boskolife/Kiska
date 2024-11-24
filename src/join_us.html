@@ -49,17 +49,17 @@
                         <form>
                             <label>
                                 Email address
-                                <input class="input_filed" type="email"
+                                <input class="input_filed" type="email" name="email" autocomplete="off" 
                                     placeholder="Enter email address" required>
                             </label>
                             <label>
                                 Name
-                                <input class="input_filed" type="text"
+                                <input class="input_filed" type="text" name="first-name" autocomplete="given-name"
                                     placeholder="Enter your name" required>
                             </label>
                             <label>
                                 Contact number
-                                <input class="input_filed" type="tel"
+                                <input class="input_filed" type="tel" name="tel" autocomplete="off"
                                     placeholder="Enter your name contact number" required>
                             </label>
                             <label>
@@ -128,12 +128,12 @@
                                 <span class="form_question">Can you dedicate 4+ hours a day to work?</span>
                                 <div class="input_wrap">
                                     <div class="input_body">
-                                        <input id="work" type="radio" name="work" required/>
-                                        <label for="work">Yes</label>
+                                        <input id="work_1" type="radio" name="work" required/>
+                                        <label for="work_1">Yes</label>
                                     </div>
                                     <div class="input_body">
-                                        <input id="work" type="radio" name="work"/>
-                                        <label for="work">Less than 4 hours</label>
+                                        <input id="work_2" type="radio" name="work"/>
+                                        <label for="work_2">Less than 4 hours</label>
                                     </div>
                                 </div>
                             </div>
