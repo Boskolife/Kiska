@@ -1,69 +1,5 @@
-.transparent_header {
-    #header {
-        .header_logo {
-            svg {
-                fill: $white;
-                transition: all .3s ease 0s;
-            }
 
-            .svg_heart,
-            .ear {
-                fill: $white;
-                transition: all .3s ease 0s;
-            }
-        }
-
-        @include media (">phone_max") {
-            .menu_link {
-                color: $pinkF9;
-            }
-        }
-
-
-        .header_btn {
-            background-color: $BG-Light-Pink;
-            color: $black12;
-
-            @include media ("<phone_max") {
-                background-color: transparent;
-                border: 1px solid $white;
-                color: $white;
-            }
-        }
-
-        @include media (">phone_max") {
-            .menu_link_active {
-                &::before {
-                    background-color: $BG-Light-Pink;
-                }
-            }
-        }
-
-
-
-
-        .burger_menu {
-
-            &::after,
-            &::before,
-            span {
-                background-color: $white;
-            }
-        }
-
-        .burger_active {
-            &::after {
-                background-color: $black12;
-            }
-
-            &::before {
-                background-color: $black12;
-            }
-        }
-    }
-}
-
-#header {
+header {
     position: absolute;
     top: 0;
     left: 0;
@@ -426,6 +362,70 @@
         span {
             opacity: 0;
             visibility: hidden;
+        }
+    }
+}
+
+.transparent_header {
+
+    .header_logo {
+        svg {
+            fill: $white;
+            transition: all .3s ease 0s;
+        }
+
+        .svg_heart,
+        .ear {
+            fill: $white;
+            transition: all .3s ease 0s;
+        }
+    }
+
+    @include media (">phone_max") {
+        .menu_link {
+            color: $pinkF9;
+        }
+    }
+
+
+    .header_btn {
+        background-color: $BG-Light-Pink;
+        color: $black12;
+
+        @include media ("<phone_max") {
+            background-color: transparent;
+            border: 1px solid $white;
+            color: $white;
+        }
+    }
+
+    @include media (">phone_max") {
+        .menu_link_active {
+            &::before {
+                background-color: $BG-Light-Pink;
+            }
+        }
+    }
+
+
+
+
+    .burger_menu {
+
+        &::after,
+        &::before,
+        span {
+            background-color: $white;
+        }
+    }
+
+    .burger_active {
+        &::after {
+            background-color: $black12;
+        }
+
+        &::before {
+            background-color: $black12;
         }
     }
 }
